@@ -41,7 +41,13 @@ public class JwtUtil {
     }
 
     public Long extraerId(String token) {
-        return extraerClaim(token, claims -> claims.get("id", Long.class));
+        return extraerClaim(token, claims -> {
+            Object id = claims.get("id");
+            if (id instanceof Number) {
+                return ((Number) id).longValue();
+            }
+            return null;
+        });
     }
 
     public Date extraerExpiracion(String token) {
