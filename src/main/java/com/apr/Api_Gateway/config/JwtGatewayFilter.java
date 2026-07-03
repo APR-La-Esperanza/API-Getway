@@ -24,7 +24,7 @@ public class JwtGatewayFilter implements HandlerFilterFunction<ServerResponse, S
         String path = request.path();
         if (path.equals("/auth/login") || path.equals("/auth/validar") || 
             (path.startsWith("/auth") && request.method().name().equals("POST")) ||
-            path.startsWith("/swagger-ui") || path.startsWith("/v3/api-docs") || path.equals("/swagger-ui.html")) {
+            path.contains("/swagger-ui") || path.contains("/v3/api-docs") || path.equals("/swagger-ui.html")) {
             return next.handle(request);
         }
 

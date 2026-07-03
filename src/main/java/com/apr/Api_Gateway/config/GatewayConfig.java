@@ -63,7 +63,7 @@ public class GatewayConfig {
     @Bean
     public RouterFunction<ServerResponse> socioRoute() {
         return route("socio_service_route")
-                .route(req -> req.path().startsWith("/socios"), http())
+                .route(req -> req.path().startsWith("/socio"), http())
                 .before(uri(URI.create(socioServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
