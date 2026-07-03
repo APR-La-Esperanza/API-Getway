@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
 
 spring:
   application:
@@ -8,6 +8,31 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
   instance:
     prefer-ip-address: true
+
+jwt:
+  secret: ${JWT_SECRET:aprLaEsperanzaClaveSuperSecretaTokenJWT2026!}
+
+service:
+  auth:
+    url: ${SERVICE_AUTH_URL:http://localhost:8081}
+  socio:
+    url: ${SERVICE_SOCIO_URL:http://localhost:8082}
+  facturacion:
+    url: ${SERVICE_FACTURACION_URL:http://localhost:8083}
+  pago:
+    url: ${SERVICE_PAGO_URL:http://localhost:8084}
+  morosidad:
+    url: ${SERVICE_MOROSIDAD_URL:http://localhost:8085}
+  reporte:
+    url: ${SERVICE_REPORTE_URL:http://localhost:8086}
+  operacion:
+    url: ${SERVICE_OPERACION_URL:http://localhost:8087}
+  balance:
+    url: ${SERVICE_BALANCE_URL:http://localhost:8088}
+  incidencia:
+    url: ${SERVICE_INCIDENCIA_URL:http://localhost:8089}
+  reparacion:
+    url: ${SERVICE_REPARACION_URL:http://localhost:8090}
