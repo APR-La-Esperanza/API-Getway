@@ -3,6 +3,7 @@ package com.apr.Api_Gateway.config;
 import static org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions.route;
 import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFunctions.http;
 import static org.springframework.cloud.gateway.server.mvc.filter.BeforeFilterFunctions.uri;
+import static org.springframework.cloud.gateway.server.mvc.filter.BeforeFilterFunctions.stripPrefix;
 
 import java.net.URI;
 
@@ -55,6 +56,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> authRoute() {
         return route("auth_service_route")
                 .route(req -> req.path().startsWith("/auth"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(authServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -64,6 +66,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> socioRoute() {
         return route("socio_service_route")
                 .route(req -> req.path().startsWith("/socio"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(socioServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -73,6 +76,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> facturacionRoute() {
         return route("facturacion_service_route")
                 .route(req -> req.path().startsWith("/facturas"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(facturacionServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -82,6 +86,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> pagoRoute() {
         return route("pago_service_route")
                 .route(req -> req.path().startsWith("/pagos"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(pagoServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -91,6 +96,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> morosidadRoute() {
         return route("morosidad_service_route")
                 .route(req -> req.path().startsWith("/morosos"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(morosidadServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -100,6 +106,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> reporteRoute() {
         return route("reporte_service_route")
                 .route(req -> req.path().startsWith("/reportes"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(reporteServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -109,6 +116,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> operacionRoute() {
         return route("operacion_service_route")
                 .route(req -> req.path().startsWith("/operaciones"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(operacionServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -118,6 +126,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> balanceHidricoRoute() {
         return route("balance_hidrico_service_route")
                 .route(req -> req.path().startsWith("/balance"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(balanceServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -127,6 +136,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> incidenciaRoute() {
         return route("incidencia_service_route")
                 .route(req -> req.path().startsWith("/incidencias"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(incidenciaServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
@@ -136,6 +146,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> reparacionRoute() {
         return route("reparacion_service_route")
                 .route(req -> req.path().startsWith("/reparaciones"), http())
+                .before(stripPrefix(1))
                 .before(uri(URI.create(reparacionServiceUrl)))
                 .filter(jwtGatewayFilter)
                 .build();
