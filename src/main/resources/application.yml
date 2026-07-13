@@ -23,19 +23,19 @@ springdoc:
     disable-server-validation: true
     urls:
       - name: Auth-Service
-        url: /auth/v3/api-docs
+        url: /api-docs-proxy/Auth-Service
       - name: Socio-Service
-        url: /socio/v3/api-docs
+        url: /api-docs-proxy/Socio-Service
       - name: Facturacion-Service
-        url: /facturas/v3/api-docs
+        url: /api-docs-proxy/Facturacion-Service
       - name: Pago-Service
-        url: /pagos/v3/api-docs
+        url: /api-docs-proxy/Pago-Service
       - name: Morosidad-Service
-        url: /morosos/v3/api-docs
+        url: /api-docs-proxy/Morosidad-Service
       - name: Incidencia-Service
-        url: /incidencias/v3/api-docs
+        url: /api-docs-proxy/Incidencia-Service
       - name: Reparacion-Service
-        url: /reparaciones/v3/api-docs
+        url: /api-docs-proxy/Reparacion-Service
 
 service:
   auth:
