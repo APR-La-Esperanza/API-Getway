@@ -19,6 +19,7 @@ public class OpenApiConfig {
                         .title("APR La Esperanza — API Gateway")
                         .version("1.0")
                         .description("Especificación y enrutamiento global de la API Gateway para el ecosistema APR."))
+                .servers(java.util.List.of(new io.swagger.v3.oas.models.servers.Server().url("/")))
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
                 .components(new Components()
                         .addSecuritySchemes("bearerAuth", new SecurityScheme()

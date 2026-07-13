@@ -20,6 +20,7 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+    disable-server-validation: true
     urls:
       - name: Auth-Service
         url: /auth/v3/api-docs
