@@ -22,8 +22,8 @@ public class JwtGatewayFilter implements HandlerFilterFunction<ServerResponse, S
     public ServerResponse filter(ServerRequest request, HandlerFunction<ServerResponse> next) throws Exception {
         // Rutas de auth (registro, login y validación) y Swagger/OpenAPI no requieren token
         String path = request.path();
-        if (path.equals("/auth/login") || path.equals("/auth/validar") || 
-            (path.startsWith("/auth") && request.method().name().equals("POST")) ||
+        if (path.endsWith("/auth/login") || path.endsWith("/auth/validar") || 
+            (path.contains("/auth") && request.method().name().equals("POST")) ||
             path.contains("/swagger-ui") || path.contains("/v3/api-docs") || 
             path.equals("/swagger-ui.html") || path.contains("/api-docs-proxy")) {
             return next.handle(request);
