@@ -20,6 +20,21 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+    urls:
+      - name: Auth-Service
+        url: ${SERVICE_AUTH_URL:http://localhost:8081}/v3/api-docs
+      - name: Socio-Service
+        url: ${SERVICE_SOCIO_URL:http://localhost:8082}/v3/api-docs
+      - name: Facturacion-Service
+        url: ${SERVICE_FACTURACION_URL:http://localhost:8083}/v3/api-docs
+      - name: Pago-Service
+        url: ${SERVICE_PAGO_URL:http://localhost:8084}/v3/api-docs
+      - name: Morosidad-Service
+        url: ${SERVICE_MOROSIDAD_URL:http://localhost:8085}/v3/api-docs
+      - name: Incidencia-Service
+        url: ${SERVICE_INCIDENCIA_URL:http://localhost:8089}/v3/api-docs
+      - name: Reparacion-Service
+        url: ${SERVICE_REPARACION_URL:http://localhost:8090}/v3/api-docs
 
 service:
   auth:
